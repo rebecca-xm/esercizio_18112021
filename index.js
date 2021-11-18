@@ -5,8 +5,6 @@ const left = document.querySelector("#sinistra");
 const char = document.querySelector(".char");
 const world = document.querySelector(".world")
 
-let worldStart = 0;
-
 up.addEventListener("click", () =>{
     char.classList.add("animate__slideOutUp")
     setTimeout(() => {char.classList.add("animate__slideOutDown")}, 1000);  
