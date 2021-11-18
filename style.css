@@ -29,6 +29,7 @@ body {
     bottom: 60px;
     left: 100px;
     z-index: 2;
+    animation: animate 2s steps(8) infinite;
 }
 
 .buttons {
@@ -38,4 +39,13 @@ body {
     grid-auto-flow: row;
     width: 200px;
     height: 100px;
+}
+
+@keyframes animate {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -524px;
+    }
 }
