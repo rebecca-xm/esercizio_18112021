@@ -5,12 +5,24 @@ const left = document.querySelector("#sinistra");
 const char = document.querySelector(".char");
 const world = document.querySelector(".world")
 
-up.addEventListener("click", () =>{
-    char.classList.add("animate__slideOutUp")
-    setTimeout(() => {char.classList.add("animate__slideOutDown")}, 1000);  
+let worldStart = 0;
+
+up.addEventListener("click", () => {
+    char.classList.add("animate__bounce")
+    setTimeout(() => { char.classList.toggle("animate__bounce") }, 1000);
 })
 
-down.addEventListener("click", () =>{
-    char.classList.add("animate__slideOutDown")
-    setTimeout(() => {char.classList.add("animate__slideOutDown")}, 1000);  
+down.addEventListener("click", () => {
+    char.classList.add("animate__bounce")
+    setTimeout(() => { char.classList.toggle("animate__bounce") }, 1000);
+})
+
+right.addEventListener("click", () => {
+    world.style.backgroundPositionX = `${worldStart -= 20}px`;
+    char.classList.toggle("char_dir")
+})
+
+left.addEventListener("click", () => {
+    world.style.backgroundPositionX = `${worldStart += 20}px`;
+    char.classList.toggle("char_dir")
 })
