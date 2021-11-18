@@ -8,25 +8,11 @@ const world = document.querySelector(".world")
 let worldStart = 0;
 
 up.addEventListener("click", () =>{
-    char.classList.toggle("animate__bounce")
-    setTimeout(() => {char.classList.toggle("animate__bounce")}, 1000);  
+    char.classList.add("animate__slideOutUp")
+    setTimeout(() => {char.classList.add("animate__slideOutDown")}, 1000);  
 })
 
 down.addEventListener("click", () =>{
-    char.classList.toggle("animate__bounce")
-    setTimeout(() => {char.classList.toggle("animate__bounce")}, 1000);  
-})
-
-right.addEventListener("click", () =>{
-    world.style.backgroundPositionX = `${worldStart-=20}px`;
-    char.classList.toggle("char_dir")
-    setTimeout(() => {char.classList.toggle("char_dir")}, 200);
-    char.classList.remove("back")        
-})
-
-left.addEventListener("click", () =>{
-    world.style.backgroundPositionX = `${worldStart+=20}px`;
-    char.classList.toggle("char_dir")
-    setTimeout(() => {char.classList.toggle("char_dir")}, 200);
-    char.classList.remove("back")        
+    char.classList.add("animate__slideOutDown")
+    setTimeout(() => {char.classList.add("animate__slideOutDown")}, 1000);  
 })
