@@ -1,28 +1,32 @@
-const up = document.querySelector("#sopra");
-const down = document.querySelector("#sotto");
-const right = document.querySelector("#destra");
-const left = document.querySelector("#sinistra");
-const char = document.querySelector(".char");
-const world = document.querySelector(".world")
+document.addEventListener("DOMContentLoaded", () => {
+    const btns = [...document.querySelectorAll("button")];
+    const char = document.querySelector(".char");
 
-let worldStart = 0;
+    btns.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const interval = setInterval(() => {
+                char.classList.toggle("walk");
+            }, 150);
 
-up.addEventListener("click", () => {
-    char.classList.add("animate__bounce")
-    setTimeout(() => { char.classList.toggle("animate__bounce") }, 1000);
-})
+            setTimeout(() => {
+                clearInterval(interval);
+            }, 2000);
 
-down.addEventListener("click", () => {
-    char.classList.add("animate__bounce")
-    setTimeout(() => { char.classList.toggle("animate__bounce") }, 1000);
-})
-
-right.addEventListener("click", () => {
-    world.style.backgroundPositionX = `${worldStart -= 20}px`;
-    char.classList.toggle("char_dir")
-})
-
-left.addEventListener("click", () => {
-    world.style.backgroundPositionX = `${worldStart += 20}px`;
-    char.classList.toggle("char_dir")
-})
+            const direction = event.target.classList[0];
+            switch (direction) {
+                case "up":
+                    char.style.top = "50px";
+                    break;
+                case "sx":
+                    char.style.left = "50px";
+                    break;
+                case "down":
+                    char.style.top = "300px";
+                    break;
+                case "dx":
+                    char.style.left = "300px";
+                    break;
+            }
+        });
+    });
+});
